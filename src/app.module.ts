@@ -2,9 +2,11 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { upperDirectiveTransformer } from './common/directives/upper-case.directive';
+import { UsersModule } from '@users/users.module';
 
 @Module({
   imports: [
+    UsersModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       typePaths: ['./**/*.graphql'],
